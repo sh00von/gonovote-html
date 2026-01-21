@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>গণভোট ২০২৬ | বাংলাদেশ সরকার</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="জুলাই জাতীয় সনদ বাস্তবায়ন ও সাংবিধানিক সংস্কারের লক্ষ্যে গণভোট ২০২৬। বাংলাদেশের ইতিহাসের সবচেয়ে গুরুত্বপূর্ণ মুহূর্তে অংশ নিন।">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+    <!-- Google Fonts: Hind Siliguri & Noto Serif Bengali -->
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        govt: {
+                            primary: '#006a4e',   // BD Flag Green
+                            secondary: '#f42a41', // BD Flag Red
+                            gold: '#d4af37',      // Official Gold
+                            cream: '#fdfbf7',     // Paper Background
+                            dark: '#1a1a1a',      // Text Black
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'sans-serif'],
+                        serif: ['Noto Serif Bengali', 'serif'],
+                    },
+                    backgroundImage: {
+                        'govt-pattern': "url('./bg.webp')",
+                    },
+                    boxShadow: {
+                        'official': '0 4px 20px -2px rgba(0, 0, 0, 0.1)',
+                        'inner-glow': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+        }
+
+        .corner-border {
+            position: relative;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .corner-border:hover {
+            border-color: #006a4e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .seal-rotate {
+            animation: rotate-slow 60s linear infinite;
+        }
+
+        @keyframes rotate-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .stamp-effect {
+            mask-image: url('https://grainy-gradients.vercel.app/noise.svg');
+            mix-blend-mode: multiply;
+        }
+
+        .texture-paper {
+            background-color: #fffdf5;
+            background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+        }
+
+        .list-counter {
+            counter-reset: section;
+        }
+
+        .list-counter-item::before {
+            counter-increment: section;
+            content: counter(section);
+        }
+    </style>
+</head>
+
+<body class="text-govt-dark antialiased bg-govt-pattern bg-cover bg-fixed bg-center bg-no-repeat overflow-x-hidden">
+
+    <!-- Top Government Bar -->
+    <div class="bg-govt-primary text-white text-xs py-2 border-b border-govt-gold">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-1 md:gap-0">
+            <div class="flex items-center gap-2">
+                <span class="opacity-90 font-medium">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span>
+            </div>
+            <div class="flex items-center gap-2 font-bold text-yellow-300 animate-pulse">
+                <i data-lucide="clock" class="w-3 h-3"></i>
+                <span>গণভোট দিবস: ১২ ফেব্রুয়ারি ২০২৬ | সময়: সকাল ৮:০০ - বিকাল ৪:০০</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Official Header -->
+    <nav class="bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-official border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold text-govt-primary font-serif leading-none">গণভোট ২০২৬</h1>
+                    <p class="text-xs text-gray-500 font-medium tracking-wider uppercase mt-1">জুলাই জাতীয় সনদ
+                        বাস্তবায়ন</p>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-gray-700">
+                    <a href="#" class="hover:text-govt-primary transition py-1">মূলপাতা</a>
+                    <a href="#about" class="hover:text-govt-primary transition py-1">গণভোট সম্পর্কে</a>
+                    <a href="#charter" class="hover:text-govt-primary transition py-1">সুপারিশসমূহ</a>
+                    <a href="#vote-section" class="hover:text-govt-primary transition py-1">ব্যালট</a>
+                </div>
+
+                <a href="#vote-section"
+                    class="flex items-center gap-2 bg-govt-secondary hover:bg-red-700 text-white px-5 py-2.5 rounded shadow-sm transition-all border border-red-800 group">
+                    <span class="font-medium text-sm">ভোট দিন</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Wrapper -->
+    <div
+        class="container mx-auto px-2 md:px-8 border-x border-gray-200 bg-white/95 backdrop-blur-sm min-h-screen shadow-2xl my-6 max-w-7xl relative pb-12">
+
+        <!-- Hero Section -->
+        <section class="hero-content relative z-10 pt-16 pb-12 text-center px-4">
+            <div class="inline-block mb-6">
+                <div class="border-2 border-govt-primary px-1 py-1 rounded-sm">
+                    <div
+                        class="border border-govt-gold bg-govt-primary/5 px-6 py-2 text-govt-primary font-bold text-sm md:text-base uppercase tracking-widest">
+                        🗳️ জাতীয় গুরুত্বপূর্ণ সিদ্ধান্ত
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-8 font-serif leading-tight max-w-4xl mx-auto">
+                বাংলাদেশের ইতিহাসের <span class="text-govt-primary">সবচেয়ে গুরুত্বপূর্ণ মুহূর্তে</span> অংশ নিন
+            </h1>
+
+            <!-- Countdown Timer -->
+            <div id="countdown-box"
+                class="bg-gray-100 border-y-4 border-govt-primary p-6 max-w-4xl mx-auto shadow-inner relative overflow-hidden mb-12">
+                <div
+                    class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5">
+                </div>
+                <div class="relative z-10">
+                    <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">গণভোট শুরু হতে বাকি</p>
+                    <div class="flex justify-center gap-2 md:gap-6">
+                        <div class="text-center">
+                            <div class="bg-govt-dark text-white font-mono text-2xl md:text-4xl px-3 md:px-4 py-2 rounded shadow-lg border-b-2 border-gray-600"
+                                id="days">--</div>
+                            <div class="text-[10px] md:text-xs font-bold text-gray-500 uppercase mt-2">দিন</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-govt-dark text-white font-mono text-2xl md:text-4xl px-3 md:px-4 py-2 rounded shadow-lg border-b-2 border-gray-600"
+                                id="hours">--</div>
+                            <div class="text-[10px] md:text-xs font-bold text-gray-500 uppercase mt-2">ঘণ্টা</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-govt-dark text-white font-mono text-2xl md:text-4xl px-3 md:px-4 py-2 rounded shadow-lg border-b-2 border-gray-600"
+                                id="minutes">--</div>
+                            <div class="text-[10px] md:text-xs font-bold text-gray-500 uppercase mt-2">মিনিট</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-govt-secondary text-white font-mono text-2xl md:text-4xl px-3 md:px-4 py-2 rounded shadow-lg border-b-2 border-red-800 animate-pulse"
+                                id="seconds">--</div>
+                            <div class="text-[10px] md:text-xs font-bold text-govt-secondary uppercase mt-2">সেকেন্ড
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What & Why Section -->
+        <section id="about" class="py-12 px-4 md:px-12 relative z-10 bg-gray-50">
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Column 1: What is Referendum -->
+                <div>
+                    <h2 class="text-2xl font-bold text-govt-dark font-serif mb-6 border-l-4 border-govt-primary pl-3">
+                        গণভোট কি?</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded shadow-sm border border-gray-200 flex gap-3">
+                            <div
+                                class="w-6 h-6 bg-govt-primary text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                                ১</div>
+                            <p class="text-gray-700">গণভোটও এক ধরনের ভোট বা নির্বাচন।</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm border border-gray-200 flex gap-3">
+                            <div
+                                class="w-6 h-6 bg-govt-primary text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                                ২</div>
+                            <p class="text-gray-700">অন্যান্য নির্বাচনে প্রার্থী থাকে, কিন্তু গণভোটে কোনও প্রার্থী নেই।
+                            </p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm border border-gray-200 flex gap-3">
+                            <div
+                                class="w-6 h-6 bg-govt-primary text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                                ৩</div>
+                            <p class="text-gray-700">গণভোটে ভোট দিতে হয় কিছু প্রস্তাবের পক্ষে অথবা বিপক্ষে "হ্যাঁ" অথবা
+                                "না" ভোট প্রদানের মাধ্যমে।</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm border border-gray-200 flex gap-3">
+                            <div
+                                class="w-6 h-6 bg-govt-primary text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                                ৪</div>
+                            <p class="text-gray-700">গণভোটে "হ্যাঁ" বিজয়ী হলে রাষ্ট্র চালানোর পদ্ধতির গুরুত্বপূর্ণ
+                                পরিবর্তন ঘটে।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Why 2026 -->
+                <div>
+                    <h2 class="text-2xl font-bold text-govt-dark font-serif mb-6 border-l-4 border-govt-secondary pl-3">
+                        গণভোট ২০২৬ কেন হচ্ছে?</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded shadow-sm border border-gray-200 flex gap-3">
+                            <div
+                                class="w-6 h-6 bg-govt-secondary text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                                ৫</div>
+                            <p class="text-gray-700">২০২৪ সালের ৫ই আগস্ট জনগণ যে আকাঙ্ক্ষা নিয়ে গণঅভ্যুত্থান ঘটিয়েছিল
+                                সেটা পূরণের রূপরেখা বাস্তবায়ন করা।</p>
+                        </div>
+                        <div class="bg-white p-4 rounded shadow-sm border border-gray-200 flex gap-3">
+                            <div
+                                class="w-6 h-6 bg-govt-secondary text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                                ৬</div>
+                            <p class="text-gray-700">গণঅভ্যুত্থানের আকাঙ্ক্ষায় প্রণীত "জুলাই জাতীয় সনদ ২০২৫" এর
+                                গুরুত্বপূর্ণ সুপারিশসমূহ বাস্তবায়নের পদ্ধতি নির্ধারণ করা।</p>
+                        </div>
+                        <div class="bg-yellow-50 p-5 rounded-lg border border-yellow-200 mt-6">
+                            <h3 class="font-bold text-govt-dark mb-2">জুলাই জাতীয় সনদ ২০২৫ এ কী আছে?</h3>
+                            <p class="text-gray-700 text-sm">রাষ্ট্রের সংস্কার ও চরিত্র বদলের জন্য অনেকগুলো গুরুত্বপূর্ণ
+                                সুপারিশ রয়েছে, যা বিভিন্ন রাজনৈতিক দল ও জোটের দীর্ঘদিনের আলাপ-আলোচনার মধ্য দিয়ে
+                                চূড়ান্ত করা হয়।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Participate Section -->
+        <section class="py-12 px-4 md:px-12 relative z-10">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-govt-dark font-serif">আপনি কেনো গণভোটে অংশ নেবেন?</h2>
+                <div class="w-24 h-1 bg-govt-gold mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="corner-border bg-white p-6 text-center hover:bg-gray-50">
+                    <div
+                        class="w-10 h-10 bg-green-100 text-green-700 rounded-full flex items-center justify-center font-bold mx-auto mb-3">
+                        ১</div>
+                    <p class="text-gray-700 text-sm font-medium">দেশের মালিকদের একজন হিসাবে আপনার ইচ্ছেরও যে মূল্য আছে
+                        তা নিশ্চিত করা।</p>
+                </div>
+                <div class="corner-border bg-white p-6 text-center hover:bg-gray-50">
+                    <div
+                        class="w-10 h-10 bg-green-100 text-green-700 rounded-full flex items-center justify-center font-bold mx-auto mb-3">
+                        ২</div>
+                    <p class="text-gray-700 text-sm font-medium">জুলাই গণঅভ্যূত্থানের আকাঙ্খা বাস্তবায়ন করা।</p>
+                </div>
+                <div class="corner-border bg-white p-6 text-center hover:bg-gray-50">
+                    <div
+                        class="w-10 h-10 bg-green-100 text-green-700 rounded-full flex items-center justify-center font-bold mx-auto mb-3">
+                        ৩</div>
+                    <p class="text-gray-700 text-sm font-medium">আপনার নির্বাচিত প্রতিনিধিরা যাতে আপনার ওপর ছড়ি ঘোরাতে
+                        না পারে সেই ব্যবস্থা করা।</p>
+                </div>
+                <div class="corner-border bg-white p-6 text-center hover:bg-gray-50">
+                    <div
+                        class="w-10 h-10 bg-green-100 text-green-700 rounded-full flex items-center justify-center font-bold mx-auto mb-3">
+                        ৪</div>
+                    <p class="text-gray-700 text-sm font-medium">সামগ্রিকভাবে একটি জবাবদিহিমূলক রাষ্ট্রব্যবস্থা
+                        প্রতিষ্ঠা করা।</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reforms List -->
+        <section id="charter" class="py-20 px-4 md:px-12 relative z-10 bg-[#f4f7f6] overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+                <div
+                    class="absolute right-0 top-0 w-96 h-96 bg-govt-primary rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2">
+                </div>
+                <div
+                    class="absolute left-0 bottom-0 w-96 h-96 bg-govt-secondary rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2">
+                </div>
+            </div>
+
+            <div class="text-center mb-16 relative">
+                <div class="inline-block relative">
+                    <h2 class="text-3xl md:text-4xl font-bold text-govt-dark font-serif mb-3 relative z-10">জুলাই জাতীয়
+                        সনদের প্রস্তাবনাসমূহ</h2>
+                    <div class="h-3 w-full bg-govt-gold/20 absolute bottom-1 left-0 -rotate-1 z-0"></div>
+                </div>
+                <p class="text-govt-primary font-medium text-lg mt-2 max-w-2xl mx-auto">রাষ্ট্রের সংস্কার ও চরিত্র বদলের
+                    লক্ষ্যে সাংবিধানিক সংস্কারের ১১টি মূলভিত্তি</p>
+
+                <div class="mt-8 flex justify-center">
+                    <div
+                        class="w-16 h-16 border-4 border-govt-dark rounded-full flex items-center justify-center relative">
+                        <div class="w-12 h-12 border-2 border-govt-gold rounded-full flex items-center justify-center">
+                            <span class="text-2xl font-bold text-govt-dark">১১</span>
+                        </div>
+                        <div
+                            class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f4f7f6] px-2 text-[10px] font-bold tracking-widest uppercase text-govt-dark">
+                            দফা</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto perspective-1000">
+                <!-- Item 1 -->
+                <div class="reform-card group">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-primary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-primary/20 flex items-center justify-center text-govt-primary font-bold font-serif text-lg bg-green-50 group-hover:bg-govt-primary group-hover:text-white transition-colors">
+                                ০১</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-primary transition-colors">
+                                    সংবিধান সংশোধন</h3>
+                                <p class="text-gray-600 leading-relaxed">সরকারি দল ইচ্ছেমতো সংবিধান সংশোধন করতে পারবে
+                                    না।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="reform-card group">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-secondary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-secondary/20 flex items-center justify-center text-govt-secondary font-bold font-serif text-lg bg-red-50 group-hover:bg-govt-secondary group-hover:text-white transition-colors">
+                                ০২</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-secondary transition-colors">
+                                    গণভোটের বিধান</h3>
+                                <p class="text-gray-600 leading-relaxed">সংবিধানের গুরুত্বপূর্ণ পরিবর্তনের ক্ষেত্রে
+                                    গণভোটের বিধান চালু হবে।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="reform-card group">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-primary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-primary/20 flex items-center justify-center text-govt-primary font-bold font-serif text-lg bg-green-50 group-hover:bg-govt-primary group-hover:text-white transition-colors">
+                                ০৩</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-primary transition-colors">
+                                    বিরোধী দলের মর্যাদা</h3>
+                                <p class="text-gray-600 leading-relaxed">বিরোধী দল থেকে ডেপুটি স্পিকার এবং গুরুত্বপূর্ণ
+                                    সংসদীয় কমিটিসমূহের সভাপতি নির্বাচিত হবেন।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="reform-card group">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-secondary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-secondary/20 flex items-center justify-center text-govt-secondary font-bold font-serif text-lg bg-red-50 group-hover:bg-govt-secondary group-hover:text-white transition-colors">
+                                ০৪</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-secondary transition-colors">
+                                    প্রধানমন্ত্রীর মেয়াদ</h3>
+                                <p class="text-gray-600 leading-relaxed">যত মেয়াদই হোক, কেউ সর্বোচ্চ ১০ বছরের বেশি
+                                    প্রধানমন্ত্রী থাকতে পারবেন না।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="reform-card group">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-primary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-primary/20 flex items-center justify-center text-govt-primary font-bold font-serif text-lg bg-green-50 group-hover:bg-govt-primary group-hover:text-white transition-colors">
+                                ০৫</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-primary transition-colors">
+                                    নারীর ক্ষমতায়ন</h3>
+                                <p class="text-gray-600 leading-relaxed">সংসদে নারীর প্রতিনিধিত্ব পর্যায়ক্রমে বাড়বে।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="reform-card group">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-secondary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-secondary/20 flex items-center justify-center text-govt-secondary font-bold font-serif text-lg bg-red-50 group-hover:bg-govt-secondary group-hover:text-white transition-colors">
+                                ০৬</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-secondary transition-colors">
+                                    আইনসভার উচ্চকক্ষ</h3>
+                                <p class="text-gray-600 leading-relaxed">ক্ষমতার ভারসাম্য প্রতিষ্ঠার জন্য পার্লামেন্টে
+                                    একটি উচ্চকক্ষ গঠিত হবে।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="reform-card group">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-primary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-primary/20 flex items-center justify-center text-govt-primary font-bold font-serif text-lg bg-green-50 group-hover:bg-govt-primary group-hover:text-white transition-colors">
+                                ০৭</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-primary transition-colors">
+                                    স্বাধীন বিচার বিভাগ</h3>
+                                <p class="text-gray-600 leading-relaxed">দেশের বিচারব্যবস্থা স্বাধীনভাবে কাজ করবে।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="reform-card group">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-secondary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-secondary/20 flex items-center justify-center text-govt-secondary font-bold font-serif text-lg bg-red-50 group-hover:bg-govt-secondary group-hover:text-white transition-colors">
+                                ০৮</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-secondary transition-colors">
+                                    মৌলিক অধিকার</h3>
+                                <p class="text-gray-600 leading-relaxed">আপনার মৌলিক অধিকারের সংখ্যা (যেমন: ইন্টারনেট
+                                    সেবা কখনও বন্ধ করা যাবে না) বাড়বে।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 9 -->
+                <div class="reform-card group">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-primary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-primary/20 flex items-center justify-center text-govt-primary font-bold font-serif text-lg bg-green-50 group-hover:bg-govt-primary group-hover:text-white transition-colors">
+                                ০৯</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-primary transition-colors">
+                                    রাষ্ট্রপতির ক্ষমার সীমা</h3>
+                                <p class="text-gray-600 leading-relaxed">দণ্ডপ্রাপ্ত অপরাধীকে রাষ্ট্রপতি ইচ্ছেমতো ক্ষমা
+                                    করতে পারবেন না।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 10 -->
+                <div class="reform-card group">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-secondary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-secondary/20 flex items-center justify-center text-govt-secondary font-bold font-serif text-lg bg-red-50 group-hover:bg-govt-secondary group-hover:text-white transition-colors">
+                                ১০</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-secondary transition-colors">
+                                    ক্ষমতার ভারসাম্য</h3>
+                                <p class="text-gray-600 leading-relaxed">রাষ্ট্রপতি ও প্রধানমন্ত্রীর ক্ষমতার মধ্যে
+                                    ভারসাম্য থাকবে।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 11 -->
+                <div class="reform-card group md:col-span-2 md:w-1/2 md:mx-auto">
+                    <div
+                        class="relative bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-govt-primary group-hover:w-2 transition-all">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-govt-pattern opacity-5 rounded-bl-full transition-transform group-hover:scale-150">
+                        </div>
+                        <div class="flex gap-5 items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-govt-primary/20 flex items-center justify-center text-govt-primary font-bold font-serif text-lg bg-green-50 group-hover:bg-govt-primary group-hover:text-white transition-colors">
+                                ১১</div>
+                            <div>
+                                <h3
+                                    class="font-serif font-bold text-lg text-gray-900 mb-2 leading-tight group-hover:text-govt-primary transition-colors">
+                                    ভাষার স্বীকৃতি</h3>
+                                <p class="text-gray-600 leading-relaxed">রাষ্ট্রভাষা বাংলার মর্যাদার পাশাপাশি অন্যান্য
+                                    জাতিগোষ্ঠীর ভাষারও সাংবিধানিক স্বীকৃতি হবে।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Official Ballot Paper Section -->
+        <section id="vote-section" class="py-16 bg-[#eef2f6] border-y border-gray-300 relative z-10 px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold font-serif text-govt-dark">গণভোট-২০২৬ এর জন্য পোস্টাল ব্যালট পেপার
+                    </h2>
+                </div>
+
+                <div class="bg-white p-1 shadow-2xl relative ballot-container">
+                    <div
+                        class="texture-paper border-4 border-double border-gray-800 p-6 md:p-10 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-govt-pattern opacity-10 pointer-events-none"></div>
+
+                        <div class="mb-6">
+                            <p class="font-serif text-lg leading-relaxed text-black font-bold mb-4">
+                                "আপনি কি জুলাই জাতীয় সনদ (সংবিধান সংশোধন) বাস্তবায়ন আদেশ, ২০২৫ এবং জুলাই জাতীয় সনদে
+                                নিম্নলিখিত সাংবিধানিক সংস্কার সম্পর্কিত প্রস্তাবসমূহের প্রতি আপনার সম্মতি জ্ঞাপন
+                                করিতেছেন?"
+                            </p>
+                        </div>
+
+                        <!-- Voting Grid -->
+                        <div class="grid grid-cols-2 border-2 border-black">
+                            <div class="border-r-2 border-black relative h-32 md:h-40">
+                                <div class="absolute top-2 left-3 font-bold text-xl">হ্যাঁ</div>
+                                <div class="absolute bottom-2 right-3"><span class="text-2xl opacity-20">✓</span></div>
+                                <div class="h-full flex items-center justify-center">
+                                    <div
+                                        class="stamp-mark w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-govt-primary text-govt-primary flex items-center justify-center transform -rotate-12 stamp-effect opacity-90">
+                                        <div class="text-center">
+                                            <div class="font-bold text-xl">সিল</div>
+                                            <div
+                                                class="text-[10px] font-bold uppercase border-t border-govt-primary mt-1 pt-1">
+                                                বাংলাদেশ</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative h-32 md:h-40">
+                                <div class="absolute top-2 left-3 font-bold text-xl">না</div>
+                                <div class="absolute bottom-2 right-3"><span class="text-2xl opacity-20">✗</span></div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 text-center bg-yellow-50 border border-yellow-200 p-3 rounded">
+                            <p class="text-govt-primary font-bold">মনে রাখবেন, পরিবর্তনের চাবি এবার আপনার হাতে।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Recreated Project Footer -->
+    <footer class="bg-govt-dark text-gray-300 py-8 text-center text-sm border-t-4 border-govt-gold">
+        <div class="container mx-auto px-4">
+
+
+            <p class="mb-2 font-medium">
+                এই প্রকল্পটি <a href="https://gonovote.bd" target="_blank"
+                    class="text-govt-gold hover:underline font-bold">gonovote.bd</a>-এর অনুপ্রেরণায় নির্মিত একটি
+                শিক্ষামূলক উদ্যোগ।
+            </p>
+            <p class="text-xs opacity-50 max-w-xl mx-auto">
+                Disclaimer: This is not an official government website. It is a concept project created solely for
+                educational and portfolio purposes.
+            </p>
+
+            <!-- Developer Info -->
+            <div class="mt-6 pt-4 border-t border-gray-800 text-xs opacity-60">
+                <div class="flex flex-wrap justify-center items-center gap-2 md:gap-4">
+                    <span>Developed by <a href="https://shovon.site" target="_blank"
+                            class="text-govt-gold hover:underline">Shovon</a></span>
+                    <span class="hidden md:inline text-gray-600">|</span>
+                    <a href="https://facebook.com/minar.svn" target="_blank"
+                        class="flex items-center gap-1 hover:text-white transition">
+                        <i data-lucide="facebook" class="w-3 h-3"></i> facebook
+                    </a>
+                    <span class="hidden md:inline text-gray-600">|</span>
+                    <a href="#" class="flex items-center gap-1 hover:text-white transition">
+                        <i data-lucide="linkedin" class="w-3 h-3"></i> linkedin
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Timer Logic: Feb 12, 2026 08:00:00
+        const targetDate = new Date("February 12, 2026 08:00:00").getTime();
+
+        setInterval(function () {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = String(d).padStart(2, '0');
+                document.getElementById("hours").innerText = String(h).padStart(2, '0');
+                document.getElementById("minutes").innerText = String(m).padStart(2, '0');
+                document.getElementById("seconds").innerText = String(s).padStart(2, '0');
+            }
+        }, 1000);
+
+        // --- GSAP Animations ---
+
+        // 1. Hero Section Animation
+        const tlHero = gsap.timeline();
+        tlHero.from("nav", { y: -50, opacity: 0, duration: 1, ease: "power3.out" })
+            .from(".hero-content .inline-block", { y: 20, opacity: 0, duration: 0.6, ease: "power2.out" }, "-=0.5")
+            .from(".hero-content h1", { y: 30, opacity: 0, duration: 0.8, ease: "back.out(1.7)" }, "-=0.4")
+            .from("#countdown-box", { scale: 0.95, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.6");
+
+        // 2. 'About' Section (What is Referendum)
+        gsap.from("#about .bg-white", {
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 80%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out"
+        });
+
+        // 3. 'Why Participate' Section
+        gsap.from(".corner-border", {
+            scrollTrigger: {
+                trigger: ".corner-border", // Triggers when the first one comes into view
+                start: "top 85%",
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out"
+        });
+
+        // 4. Charter/Reforms Section (Official Cards)
+        // Note: removed 'opacity-0' & 'translate-y-8' input classes to let GSAP handle it
+        const reformCards = document.querySelectorAll('.reform-card');
+        reformCards.forEach(card => {
+            // Remove utility classes that might conflict or cause FOUC
+            card.classList.remove('opacity-0', 'translate-y-8');
+        });
+
+        gsap.from(".reform-card", {
+            scrollTrigger: {
+                trigger: "#charter",
+                start: "top 75%",
+            },
+            y: 100,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power3.out"
+        });
+
+        // 5. Ballot Paper & Stamp Animation
+        const tlBallot = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#vote-section",
+                start: "top 60%",
+            }
+        });
+
+        tlBallot.from(".ballot-container", { rotateX: -15, y: 50, opacity: 0, duration: 1, ease: "power3.out" })
+            .from(".stamp-mark", { scale: 3, opacity: 0, rotation: 45, duration: 0.5, ease: "elastic.out(1, 0.3)" }); // Stamp slams down
+
+        // Optional: Parallax for Watermark
+        gsap.to(".seal-rotate", {
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 2
+            },
+            rotate: 360,
+            ease: "none"
+        });
+    </script>
+</body>
+
+</html>
